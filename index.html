@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Sayfa meta bilgileri -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Neon Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Ana uygulama konteyneri -->
+    <div class="app">
+
+        <!-- Sol panel: Oyun ayarları ve kontroller -->
+        <aside class="panel left-panel" id="leftPanel">
+            <!-- Oyun modu seçimi başlığı -->
+            <h2 class="panel-title">Oyun Modu</h2>
+
+            <!-- Oyun modu butonları -->
+            <div class="modes">
+                <button class="btn mode-btn active" data-mode="computer">👾 Bilgisayara Karşı</button>
+                <button class="btn mode-btn" data-mode="two">👥 İki Kişi</button>
+            </div>
+
+            <!-- Zorluk seviyesi seçimi (sadece bilgisayar modunda görünür) -->
+            <div id="difficultySection" class="difficulty-section">
+                <h2 class="panel-title">Zorluk Seviyesi</h2>
+                <div class="difficulties">
+                    <button class="btn difficulty-btn active" data-difficulty="easy">🟢 Kolay</button>
+                    <button class="btn difficulty-btn" data-difficulty="medium">🟡 Orta</button>
+                    <button class="btn difficulty-btn" data-difficulty="hard">🔴 Zor</button>
+                </div>
+            </div>
+
+            <!-- Oyuncu isim girişi (sadece iki kişi modunda görünür) -->
+            <div id="nameInputs" class="name-inputs hidden">
+                <input id="player1Name" class="input" placeholder="1. Oyuncu Adı" maxlength="20" />
+                <input id="player2Name" class="input" placeholder="2. Oyuncu Adı" maxlength="20" />
+            </div>
+
+            <!-- Tahta boyutu seçimi başlığı -->
+            <h2 class="panel-title">Tahta Boyutu</h2>
+            <!-- Tahta boyutu butonları -->
+            <div class="sizes">
+                <button class="btn size-btn active" data-size="3">3 × 3</button>
+                <button class="btn size-btn" data-size="6">6 × 6</button>
+                <button class="btn size-btn" data-size="9">9 × 9</button>
+            </div>
+
+            <!-- Oyun kontrolleri -->
+            <div class="controls">
+                <button id="startBtn" class="btn big-btn">🚀 Başlat</button>
+                <button id="resetBtn" class="btn outline-btn">♻️ Sıfırla</button>
+            </div>
+        </aside>
+
+        <!-- Ana oyun alanı -->
+        <main class="main-area">
+            <!-- Oyun başlığı -->
+            <h1 class="title">✨ Neon Tic-Tac-Toe ✨</h1>
+
+            <!-- Oyun bilgi çubuğu -->
+            <div id="infoBar" class="info-bar">
+                <div id="turnDisplay" class="turn-display">Oyun başlamadı</div>
+            </div>
+
+            <!-- Oyun tahtası konteyneri -->
+            <div id="boardWrap" class="board-wrap hidden">
+                <div id="board" class="board" data-size="3"></div>
+            </div>
+
+            <!-- Alt bilgi alanı -->
+            <div class="bottom-info">
+                <div id="resultText" class="result-text"></div>
+            </div>
+        </main>
+
+        <!-- Sağ panel: Oyun kuralları -->
+        <aside class="panel right-panel">
+            <h2 class="panel-title">Nasıl Oynanır?</h2>
+            <div class="rules">
+                <p><strong>Amaç:</strong> Seçilen tahtada yatay/dikey veya çaprazda gereken sayıda aynı taş getirmek.</p>
+                <ul>
+                    <li><strong>3×3</strong> — 3 taş üst üste kazanır</li>
+                    <li><strong>6×6</strong> — 4 taş üst üste kazanır</li>
+                    <li><strong>9×9</strong> — 5 taş üst üste kazanır</li>
+                </ul>
+                <p>Soldan önce mod ve boyutu seçip <strong>Başlat</strong>'a basın. İki kişilik modda isimleri girin; sıra kime gelirse adını göreceksiniz.</p>
+                <p><em>Mobilde: önce sol/sağ paneller gösterilir; seçim sonrası tahta ortada açılır.</em></p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Oyun sonuç popup'ı -->
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-box">
+            <h2 id="overlayTitle">🎉 Tebrikler!</h2>
+            <p id="overlayDesc">Oyuncu kazandı.</p>
+            <div class="overlay-actions">
+                <button id="overlayPlayAgain" class="btn big-btn">🔄 Tekrar Oyna</button>
+                <button id="overlayClose" class="btn outline-btn">✖ Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript dosyası -->
+    <script src="script.js"></script>
+</body>
+
+</html>
